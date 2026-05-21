@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages{
+
         stage('checkout code'){
               steps{
                 checkout scm
@@ -10,14 +11,15 @@ pipeline {
 
         stage('show python version'){
             steps{
-                bat python --version
+                bat "python --version"
             }
         }
 
          stage('run extract_data.py'){
             steps{
-                checkout scm
+                bat "python extract_data.py"
             }
         }
+
     }
 }
